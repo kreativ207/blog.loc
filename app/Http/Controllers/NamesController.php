@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Name;
 use Illuminate\Http\Request;
+use App\Http\Requests\NameRequest;
 
 class NamesController extends Controller
 {
@@ -11,6 +12,18 @@ class NamesController extends Controller
     {
        //$name = Name::find(1);
        $names = Name::all();
-       dd($names);
+       return view('names', compact('names'));
+    }
+
+    /*public function all()
+    {
+        $names = Name::all();
+        return view('names', compact('names'));
+    }*/
+
+    public function sendForm(NameRequest $request)
+    {
+        Name::create($request->all());
+        return redirect('/names');
     }
 }
