@@ -19,3 +19,5 @@ Route::get('/', function () {
 Route::get('admin/user/{id}', 'Admin\TestController@user');
 
 Route::get('admin/user/{main}/second/{second}', 'Admin\TestController@many');
+
+Route::get('names', 'NamesController@index');
